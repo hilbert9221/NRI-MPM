@@ -1,5 +1,5 @@
 ## Neural Relational Inference with Efficient Message Passing Mechanisms
-This repository contains the source code for the paper *Neural Relational Inference with Efficient Message Passing Mechanisms* published in AAAI 2021. The code and data will be available soon. [arXiv](https://arxiv.org/pdf/2101.09486)
+This repository contains the source code for the paper *Neural Relational Inference with Efficient Message Passing Mechanisms* accepted by AAAI 2021. The code and data will be available soon. [arXiv](https://arxiv.org/pdf/2101.09486)
 
 ## Requirements
 - Ubuntu 16.04
