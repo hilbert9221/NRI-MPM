@@ -29,7 +29,7 @@ This repository implements a series of encoders and decoders to allow flexible c
   - AttDEC: decoder with the spatio-temporal message passing mechanism implemented by RNNs and the temporal attention mechanism.
 
 #### Implementation tricks for permutation equivariant operations
-The most tricky part is the implementation of the permutation equivariant operations in the RNN based relation interaction mechanism. The key is to **keep track of the indices**. Here are some examples.
+The most tricky part is the implementation of the permutation equivariant operations in the RNN based relation interaction mechanism. The key is to **keep track of the indices**. Here is an examples.
 ```python
 import numpy as np
 
