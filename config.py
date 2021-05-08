@@ -12,6 +12,7 @@ edge_type = 2
 enc = 'GNNENC'
 dec = 'GNNDEC'
 n_hid = 2 ** 8
+input_emb_hid = 2 ** 7
 # Dimension of hidden layers of attention mechanisms.
 emb_hid = 2 ** 8
 att_hid = 2 ** 8

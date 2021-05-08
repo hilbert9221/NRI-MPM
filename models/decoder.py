@@ -151,7 +151,7 @@ class RNNDEC(GNN):
     """
     def __init__(self, n_in_node: int, edge_types: int,
                  msg_hid: int, msg_out: int, n_hid: int,
-                 do_prob: float=0., skip_first: bool=False, option='edge'):
+                 do_prob: float=0., skip_first: bool=False, option='both'):
         """
         Args:
             n_in_node: input dimension
@@ -282,9 +282,10 @@ class AttDEC(GNN):
             skip_first: setting the first type of edge as non-edge or not, if yes, the first type of edge will have no effect, default: False
         """
         super(AttDEC, self).__init__()
+        self.input_emb = nn.Linear(n_in_node, cfg.input_emb_hid)
         self.msgs = nn.ModuleList([
             nn.Sequential(
-                nn.Linear(2 * n_in_node, msg_hid),
+                nn.Linear(2 * (n_in_node + cfg.input_emb_hid), msg_hid),
                 nn.ReLU(),
                 nn.Dropout(do_prob),
                 nn.Linear(msg_hid, msg_out),
@@ -367,10 +368,11 @@ class AttDEC(GNN):
             msgs: [E, batch, step, dim], hidden states of edges
             cat: [node, batch, step, dim], hidden states of nodes
         """
-
+        x_emb = self.input_emb(x)
+        x_emb = torch.cat([x_emb, x], dim=-1)
         # z: [E, batch, K] -> [E, batch, step, K]
         z = z.repeat(x.size(2), 1, 1, 1).permute(1, 2, 0, 3).contiguous()
-        msg, col, size = self.message(x, es)
+        msg, col, size = self.message(x_emb, es)
         idx = 1 if self.skip_first else 0
         norm = len(self.msgs)
         if self.skip_first:

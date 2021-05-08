@@ -175,7 +175,7 @@ class RNNENC(GNN):
     """
     def __init__(self, n_in: int, n_hid: int, n_out: int,
                  do_prob: float=0., factor: bool=True,
-                 reducer: str='mlp', option: str='inter'):
+                 reducer: str='mlp', option: str='both'):
         """
         Args:
             n_in: input dimension
