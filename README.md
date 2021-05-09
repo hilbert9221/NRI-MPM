@@ -96,6 +96,6 @@ If you find this repository useful in your research, please consider citing the 
 	author={Chen, Siyuan and Wang, Jiahai and Li, Guoqing},
 	booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
 	pages={},
-	year={2020}
+	year={2021}
 }
 ```
